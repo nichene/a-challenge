@@ -4,7 +4,7 @@ API service developed for the Stone challenge.
 
 ## Pre configurations
 
-- To change default env vars copy the `.env.example` to a `.env` file and modify accordingly.
+- To load env vars copy the `.env.example` to a `.env` file and modify accordingly.
 
 - Point your DB vars to your desired DB. To run a local DB use the `make db` command.
 
