@@ -2,7 +2,19 @@
 
 API service developed for the Stone challenge.
 
-## How to run the API
+## Pre configurations
+
+- To change default env vars copy the `.env.example` to a `.env` file and modify accordingly.
+
+- Point your DB vars to your desired DB. To run a local DB use the `make db` command.
+
+## Migrations
+
+- It is necessary to install Goose to run DB migrations. Please refer to the docs at: [goose](https://github.com/pressly/goose) for instalation guide.
+
+- To run migration use `make migrate-up`.
+
+## API
 
 To run the server locally you can type `make run-api`.
 

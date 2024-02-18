@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  # --- Database ---
+  postgres:
+    image: postgres:latest
+    environment:
+      POSTGRES_DB: $DB_NAME
+      POSTGRES_USER: $DB_USER
+      POSTGRES_PASSWORD: $DB_PASS
+      PGDATA: /data/postgres
+    volumes:
+      - stone_challenge_data:/data/postgres
+    ports:
+      - ${DB_PORT}:5432
+
+volumes:
+  stone_challenge_data:

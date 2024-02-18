@@ -4,26 +4,37 @@ import (
 	"context"
 	"log"
 	"os/signal"
+	"stone_challenge/config"
 	"stone_challenge/internal/health"
 	"stone_challenge/internal/http"
 	"stone_challenge/internal/person"
+	postgresRepo "stone_challenge/internal/person/postgres"
+	postgres "stone_challenge/pkg"
 	"syscall"
 )
 
 func main() {
-	envVars := loadEnvVars()
+	cfg := config.LoadEnvVars()
 
 	ctx, stop := signal.NotifyContext(context.Background(), syscall.SIGINT, syscall.SIGTERM)
 	defer stop()
 
-	httpService := http.NewService(health.NewHealthCheckService(), *person.NewService())
+	db, err := postgres.InitDatabase(ctx, cfg)
 
-	srv, err := http.NewServer(envVars.Port, http.WithService(httpService))
+	httpService := http.NewService(
+		health.NewHealthCheckService(),
+		*person.NewService(
+			postgresRepo.NewPersonsRepository(db),
+			postgresRepo.NewParentsRepository(db),
+		),
+	)
+
+	srv, err := http.NewServer(cfg.Port, http.WithService(httpService))
 	if err != nil {
 		log.Fatal("API - Server down", err)
 	}
 
-	log.Default().Print("API - New server up on port ", envVars.Port)
+	log.Default().Print("API - New server up on port ", cfg.Port)
 
 	<-ctx.Done()
 
