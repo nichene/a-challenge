@@ -1,0 +1,64 @@
+definitions:
+  person.CreatePersonIntent:
+    properties:
+      children:
+        items:
+          type: string
+        type: array
+      name:
+        type: string
+      parents:
+        items:
+          type: string
+        type: array
+    required:
+    - name
+    type: object
+  person.Person:
+    properties:
+      children:
+        items:
+          $ref: '#/definitions/person.Person'
+        type: array
+      created_at:
+        type: string
+      id:
+        type: integer
+      name:
+        type: string
+      parents:
+        items:
+          $ref: '#/definitions/person.Person'
+        type: array
+      updated_at:
+        type: string
+    type: object
+info:
+  contact: {}
+paths:
+  /person:
+    post:
+      consumes:
+      - application/json
+      parameters:
+      - description: Body
+        in: body
+        name: request
+        required: true
+        schema:
+          $ref: '#/definitions/person.CreatePersonIntent'
+      produces:
+      - application/json
+      responses:
+        "200":
+          description: OK
+          schema:
+            $ref: '#/definitions/person.Person'
+        "400":
+          description: Bad Request
+        "500":
+          description: Internal Server Error
+      summary: Creates person
+      tags:
+      - Person
+swagger: "2.0"

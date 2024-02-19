@@ -9,4 +9,6 @@ func (s *Server) router() {
 	routes.HealthRoute(s.httpServer, handlers.NewHealthHandler(s.service.Health))
 
 	routes.PersonRoutes(s.httpServer, handlers.NewPersonHandler(s.service.PersonService))
+
+	routes.SwagRoute(s.httpServer)
 }

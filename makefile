@@ -1,4 +1,5 @@
 include .env
+GOPATH ?= $(shell go env GOPATH)
 
 api:
 	go run ./cmd/*.go
@@ -15,3 +16,7 @@ migrate-up:
 
 build-image:
 	docker build -t stone-challeng:latest .
+
+swag:
+	@$(GOPATH)/bin/swag init -g cmd/main.go -q
+	

@@ -18,6 +18,16 @@ API service developed for challenge.
 
 To run the server locally you can type `make run-api`.
 
+## Swagger
+
+- To generate endpoint documentation swagger must be installed. Please refer to their docs at: [goose](https://github.com/pressly/goose) for instalation guide.
+
+- It can usually be installed by running `go install github.com/swaggo/swag/cmd/swag@latest`
+
+- after installed generate docs by running `make swag`
+
+- go to `localhost:8080/swagger` endpoint to see docs
+
 ## Testing
 
 Run the project tests by running `make tests`.
@@ -25,7 +35,7 @@ Run the project tests by running `make tests`.
 ## Dockerfile
 
 You are able to build the projects image by running:
-`build-image`
+`make build-image`
 
 and check it out by running
 `docker run --rm -p 8080:8080 stone-challeng:latest`
