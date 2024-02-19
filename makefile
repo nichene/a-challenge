@@ -19,4 +19,7 @@ build-image:
 
 swag:
 	@$(GOPATH)/bin/swag init -g cmd/main.go -q
+
+mocks:
+	go generate ./internal/...
 	
