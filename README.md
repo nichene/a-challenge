@@ -20,7 +20,7 @@ To run the server locally you can type `make run-api`.
 
 ## Swagger
 
-- To generate endpoint documentation swagger must be installed. Please refer to their docs at: [goose](https://github.com/pressly/goose) for instalation guide.
+- To generate endpoint documentation swagger must be installed. Please refer to their docs at: [swagger](https://github.com/pressly/goose) for instalation guide.
 
 - It can usually be installed by running `go install github.com/swaggo/swag/cmd/swag@latest`
 
@@ -34,7 +34,7 @@ Run the project tests by running `make tests`.
 
 ## Generate mocks
 
-- To generate test mocks install mockgen `go install github.com/golang/mock/mockgen@v1.6.0`. Docs at:[mockgen](https://github.com/golang/mock)
+- To generate test mocks install mockgen `go install github.com/golang/mock/mockgen@v1.6.0`. Docs at: [mockgen](https://github.com/golang/mock)
 
 - run `make mocks`
 
