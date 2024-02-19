@@ -8,5 +8,6 @@ import (
 
 // PersonRoutes contains persons endpoints.
 func PersonRoutes(route *fiber.App, handler handlers.PersonHandler) {
+	route.Post("/person", handler.Create)
 	route.Get("/person", handler.Find)
 }

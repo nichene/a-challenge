@@ -1,6 +1,6 @@
 ## Stone-challenge project
 
-API service developed for the Stone challenge.
+API service developed for a challenge.
 
 ## Pre configurations
 
@@ -12,7 +12,7 @@ API service developed for the Stone challenge.
 
 - It is necessary to install Goose to run DB migrations. Please refer to the docs at: [goose](https://github.com/pressly/goose) for instalation guide.
 
-- To run migration use `make migrate-up`.
+- To run migrations use `make migrate-up`.
 
 ## API
 
