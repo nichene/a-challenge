@@ -1,6 +1,6 @@
 ## Stone-challenge project
 
-API service developed for a challenge.
+API service developed for challenge.
 
 ## Pre configurations
 
